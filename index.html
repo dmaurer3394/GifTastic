@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Giftastic</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <br>
+        <div id="topic-buttons"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="clearable" id="topic-images"></div>
+      </div>
+      <div class="col-sm-4">
+        <form>
+          <h4>Add a topic!</h4>
+          <span id="user-input"><input id="user-topic" type="text" placeholder="Type Here"></span>
+          <input class="btn btn-primary" id="add-user-input" type="submit" value="Add Topic">
+        </form>
+        <button class="btn btn-danger btn-lg" id="clear">Clear All</button>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
