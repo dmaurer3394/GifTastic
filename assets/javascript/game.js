@@ -1,9 +1,10 @@
 $(document).ready(function () {
 
-    var topics = ["chevrolet", "ford", "ferarri", "tesla", "dodge"];
+    var topics = ["lion", "bear", "zebra", "gazelle", "elephant"];
     var apiKey = "&api_key=vEcKI3Y3c3gSdqpCfDSVdiuCovlUc1iN";
     var limit = "&limit=10";
     var topicButton = "";
+    var arr = [];
 
     function capitalizeItems() {
         for (var i = 0; i < topics.length; i++) {
@@ -19,7 +20,7 @@ $(document).ready(function () {
         capitalizeItems();
 
         for (var i = 0; i < topics.length; i++) {
-            topicButton = $("<button>").text(topics[i]).addClass("btn btn-primary choices").attr("id", topics[i]);
+            topicButton = $("<button>").text(topics[i]).addClass("btn btn-outline-dark btn-lg choices").attr("id", topics[i]);
             $("#topic-buttons").append(topicButton);
             $(".choices").after(" ")
         }
@@ -45,19 +46,42 @@ $(document).ready(function () {
                 var gifSpan = $("<span>");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
-                var image = $("<img>").attr("src", results[i].images.fixed_height.url);
+                var image = $("<img>").attr("src", results[i].images.fixed_height_still.url).attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url).addClass("gif");
 
                 gifSpan.append(p);
                 gifSpan.append(image);
 
                 $("#topic-images").prepend(gifSpan);
             }
+
+            $(".gif").on("click", function() {
+                console.log("yes");
+                var state = $(this).attr("data-state");
+                if (state === "animate") {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                } else {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                }
+            })
         })
     })
 
-    $("#clear").on("click", function() {
-        console.log("Hi")
+    $("#clear-gif").on("click", function() {
         $(".clearable").empty();
+    })
+    
+    $("#clear-button").on("click", function() {
+        topics = ["lion", "bear", "zebra", "gazelle", "elephant"];
+        createButtons();
+    })
+
+    $("#remove-last").on("click", function() {
+        if(topics.length > 5) {
+        topics.pop();
+        createButtons();
+        }
     })
 
     $("#add-user-input").on("click", function(event) {

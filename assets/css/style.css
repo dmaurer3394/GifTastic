@@ -1,0 +1,24 @@
+body {
+    background-color: #eff7cf;
+}
+
+h4 {
+    font-family: 'Righteous', cursive;
+}
+
+.clears {
+    margin: 5px;
+    float: right;
+}
+
+.clears:hover {
+    background-color: #f86734;
+}
+
+.btn {
+    font-family: 'Righteous', cursive;
+}
+
+.choices:hover {
+    background-color: #3ddc84;
+}
